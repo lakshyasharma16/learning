@@ -1,0 +1,24 @@
+A
+B
+C
+
+status="true"
+
+try{
+stage A(){
+#statements
+}
+catch(exection e){
+
+status="false"
+}
+
+
+if status="true"{
+#execute C
+}
+
+
+if status="false"{
+#execute B
+}
