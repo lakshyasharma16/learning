@@ -1,0 +1,16 @@
+sudo wget -O /etc/yum.repos.d/jenkins.repo \ https://pkg.jenkins.io/redhat-stable/jenkins.repo
+
+
+#How to install Jenkins on Ubuntu 20.04
+sudo apt-get update.
+sudo apt-get install openjdk-8-jdk.
+sudo apt-get update.
+sudo apt-get install jenkins.
+sudo apt install git.
+
+49093fc8b7fd45778f79a94867fdb5db
+
+#install jenkins
+#commands
+https://pkg.jenkins.io/debian-stable/
+
