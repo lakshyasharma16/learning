@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firstdeployment
+  labels:
+     name: firstdeployment
+spec:
+  replicas: 10
+  minReadySeconds: 30
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1 
+    type: RollingUpdate 
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - myapp1
+          - myapp2
+  template:
+    metadata:
+      name: pod
+      labels:
+        app: myapp1
+    spec:
+      containers:
+        - name: container
+          image: coolgourav147/nginx-custom

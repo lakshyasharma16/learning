@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firstdeployment
+  labels:
+     name: firstdeployment
+spec:
+  replicas: 10
+#only highlighted lines are added in 002.yaml
+  minReadySeconds: 30                #kitni der me ready ho jaye pod
+  strategy:
+    rollingUpdate:
+      maxSurge: 0                            # kitne extra pods create ho jayenge       
+      maxUnavailable: 1                   # ek baari me kitne pod delete aur create hoyenge
+    type: RollingUpdate                   # isse zero downtime achieve ho jayega
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In                           # In jab mentioned values me match karna ho warna NotIn
+        values:
+          - myapp1
+          - myapp2
+  template:
+    metadata:
+      name: pod
+      labels:
+        app: myapp1
+    spec:
+      containers:
+        - name: container
+          image: coolgourav147/nginx-custom
+

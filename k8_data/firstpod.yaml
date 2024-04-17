@@ -1,0 +1,32 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myfirstpod
+  labels:
+    env: dev
+    type: app
+spec:
+  containers:
+    - name: firstcontainer
+      image: mine:2
+#      image: hello-world
+#      image: coolgourav147/nginx-custom
+      env:
+        - name: language
+          value: python
+      args: [ "sleep","50" ]
+    - name: secondcontainer
+      image: coolgourav147/nginx-custom
+      env:
+        - name: langg
+          value: one
+      args: [ "sleep","3600" ]
+#  initContainers:#a
+#    - name: initfirstcontainer#a
+#      image: coolgourav147/nginx-custom#a
+#      env:#a
+#        - name: langg#a
+#          value: one#a
+#      args: [ "sleep","15" ]#
+
