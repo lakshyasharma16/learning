@@ -1,0 +1,57 @@
+##
+
+
+set "k=kubectl"
+
+kubectl get pods
+kubectl get po
+
+
+kubectl get nodes
+kubectl get no
+
+
+kubectl get rc
+kubectl get service
+
+kubectl get namespace
+
+kubectl get pods -o wide
+kubectl get pods -o wide --show-labels
+kubectl get pods --show-labels
+
+============================================================
+
+kubectl create -f firstpod.yaml
+kubectl apply -f firstpod.yaml
+
+kubectl apply -f firstpod.yaml --dry-run=client
+kubectl apply -f firstpod.yaml --dry-run=server
+
+============================================================
+## minikube commands:
+
+minikube service list
+minikube service service1 --url
+minikube node list
+
+# get service endpoints
+kubectl get endpoints service1
+
+# minikube dashboard
+minikube dashboard
+http://127.0.0.1:59911/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/#/replicaset/default/firstdeployment-5ccdcb8d49?namespace=default
+
+============================================================
+#both command will work
+kubectl delete pods myfirstpod
+kubectl delete pod myfirstpod
+============================================================
+#create service
+
+kubectl expose pod myfirstpod --type=NodePort --port=8000 --target-port=80 --name service1
+
+
+
+
+

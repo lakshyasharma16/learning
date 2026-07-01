@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: 1pod
+spec:
+  containers:
+    - name: 1pod
+      image: coolgourav147/nginx-custom
+      ports:
+        - containerPort: 80
